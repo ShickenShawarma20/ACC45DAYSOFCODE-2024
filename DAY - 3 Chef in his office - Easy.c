@@ -1,15 +1,44 @@
 #include <stdio.h>
+
 int main() {
-    int T, X, Y, totalHours;
-    
+    int T, N, X;
     scanf("%d", &T);
-
     while (T--) {
-        scanf("%d %d", &X, &Y); 
-        totalHours =4 * X + Y; 
+        scanf("%d %d", &N,&X);
+        int isPossible = 0;
+        if (X % 2 != 0 && N % 2 == 0) {
+            isPossible = 0;
+        } else {
+        if (X % 2 == 0 && N % 2 != 0) {
+            isPossible = 0;
+            } else {
+                if(X > N) {
+                    isPossible = 0;
+                } else {
+                    if (X == N) {
+                        isPossible = 1;
+                    } else {
+                        while (N > X) {
+                            if (N % 2 !=0)
+                            {
+                                isPossible = 0;
+                                break;
+                            }
+                            N /= 2;
+                        }
+                        if (N != X) {
+                            isPossible = 0;
+                        }
+                    }
+                }
 
-        printf("%d\n", totalHours);
-
+            }
+        }
+            if (isPossible) {
+                printf("YES\n");
+            } else {
+                printf("NO\n");
+            }
+        }
+        return 0;
     }
-    return 0;
-}
