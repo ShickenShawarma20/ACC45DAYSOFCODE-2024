@@ -16,7 +16,7 @@ int main() {
                     isPossible = 0;
                 } else {
                     if (X == N) {
-                        ifPossible = 1;
+                        isPossible = 1;
                     } else {
                         while (N > X) {
                             if (N % 2 !=0)
